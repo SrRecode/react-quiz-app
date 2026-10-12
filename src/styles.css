@@ -1,0 +1,253 @@
+:root {
+  --bg: #0d1017;
+  --panel: #161b26;
+  --line: #263041;
+  --text: #e9eef7;
+  --muted: #8b96ab;
+  --accent: #6d8dff;
+  --accent-ink: #0a1026;
+  --good: #4ade80;
+  --bad: #ff7a7a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 50% -10%, #1a2233, var(--bg) 60%);
+}
+
+.app {
+  width: min(640px, 100%);
+}
+
+h1 {
+  font-size: 1.7rem;
+  margin: 0 0 6px;
+}
+
+.intro p,
+.quiz__progressText,
+.results__score {
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.picker {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.picker__card {
+  width: 100%;
+  text-align: left;
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.picker__card:hover {
+  border-color: var(--accent);
+}
+
+.picker__title {
+  font-weight: 700;
+}
+
+.picker__meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.progress {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--panel);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.progress__bar {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.question__prompt {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 0 0 18px;
+}
+
+.choices {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.choice {
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.choice:hover {
+  border-color: var(--accent);
+}
+
+.choice--selected {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 18%, var(--panel));
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.btn {
+  font: inherit;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  padding: 11px 20px;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.dot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  cursor: pointer;
+  padding: 0;
+}
+
+.dot--answered {
+  background: color-mix(in srgb, var(--accent) 40%, var(--panel));
+  border-color: var(--accent);
+}
+
+.dot--active {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.results__score {
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.verdict {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin: 0 0 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.verdict--excellent,
+.verdict--good {
+  color: var(--good);
+  border-color: var(--good);
+}
+
+.verdict--keep-practicing {
+  color: var(--bad);
+  border-color: var(--bad);
+}
+
+.review {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.review__item {
+  border: 1px solid var(--line);
+  border-left-width: 4px;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: var(--panel);
+}
+
+.review__item.is-correct {
+  border-left-color: var(--good);
+}
+
+.review__item.is-wrong {
+  border-left-color: var(--bad);
+}
+
+.review__prompt {
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+.review__answer {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.review__explain {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
